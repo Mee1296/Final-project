@@ -4,12 +4,12 @@ import Room from "../Model/RoomModel";
 
 const router = express.Router();
 
-router.get("/create_room", async(req, res)=>{
+router.post("/create_room", async(req, res)=>{
 
     const r = new Room()
-    await Room.save()
+    await r.save()
 
-    res.status(200).json({ message: "OK" });
+    res.send(r._id)
 })
 
 router.get("/join_room", async(req, res)=>{
@@ -37,7 +37,7 @@ router.get("/click", async(req, res)=>{
     res.status(200).json({ message: "OK" });
 
 })
-router.get("/:id", async(req, res)=>{
+router.post("/:id", async(req, res)=>{
     res.setHeader('Content-Type', 'text/event-stream')
     res.setHeader('Access-Control-Allow-Origin' , '*')
 
