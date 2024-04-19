@@ -50,18 +50,18 @@ class GameScene extends Phaser.Scene{
   }
 
   preload(){
-    this.load.image("bg", "./assets/bg.png")
+    this.load.image("bg", "./assets/bg.PNG")
     this.load.spritesheet('baseplayer', './assets/bp-spritesheet2.png', {
       frameWidth: 256,
       frameHeight: 512
     });
-    this.load.image("jukebox","./assets/jukebox.png")
+    this.load.image("jukebox","./assets/jukebox.PNG")
     this.load.audio("funkymusic","./assets/funkymusic.mp3")
     this.load.on('complete', () => {
       console.log('Audio files loaded');
     });
     this.load.image("note","./assets/note.png")
-    this.load.image("crown","./assets/crown.png")
+    this.load.image("crown","./assets/crown.PNG")
 }
 
   create(){
