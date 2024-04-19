@@ -149,6 +149,25 @@ class GameScene extends Phaser.Scene{
   }
 }
 
+// class MenuScreen extends Phaser.Scene {
+//   constructor() {
+//     super('menuScreen')
+//   }
+
+//   preload() {
+//     this.load.image("bgMenu", "../assets/space.png")
+
+//   }
+
+//   create() {
+//     const startButton = this.add.text(300, 100, 'Welcome to Our Cafe', { font: '50px jersey', fill: '#ffffff' });
+//     startButton.setInteractive();
+//     startButton.on('pointerdown', () => {
+//     this.scene.start('GameScene'); // Transition to the main game scene
+//   });
+//   }
+// }
+
 const config = {
   type: Phaser.WEBGL,
   width:sizes.width,
