@@ -8,6 +8,10 @@ const sizes = {
 
 const speedDown = 300;
 
+const menuScreenDiv = document.querySelector("#menuScreenDiv")
+const RoomNumberBtn = document.querySelector("#RoomNumberBtn")
+
+
 const ratio = 0.4
 
 class Player extends Phaser.GameObjects.Sprite{
@@ -65,6 +69,9 @@ class GameScene extends Phaser.Scene{
 }
 
   create(){
+
+    this.scene.pause("scene-game")
+
     const bg = this.add.image(0,0,"bg").setOrigin(0,0)
     bg.scale = 0.625
     this.jukebox = this.physics.add.image(sizes.width-50,sizes.height-80,"jukebox")
@@ -149,25 +156,7 @@ class GameScene extends Phaser.Scene{
   }
 }
 
-// class MenuScreen extends Phaser.Scene {
-//   constructor() {
-//     super('menuScreen')
-//   }
 
-//   preload() {
-//     this.load.image("bgMenu", "../assets/space.png")
-
-//   }
-
-//   create() {
-//     const bg = this.add.image(0,0,"bgMenu").setOrigin(0,0)
-//     const startButton = this.add.text(300, 100, 'Welcome to Our Cafe', { font: '50px jersey', fill: '#ffffff' });
-//     startButton.setInteractive();
-//     startButton.on('pointerdown', () => {
-//     this.scene.start('GameScene'); // Transition to the main game scene
-//   });
-//   }
-// }
 
 
 const config = {
@@ -185,6 +174,15 @@ const config = {
   },
   scene:[GameScene]
 }
+
+RoomNumberBtn.addEventListener("click", ()=>{
+  menuScreenDiv.style.display="none"
+  game.scene.resume("scene-game")
+  const enteredRoomNumber = document.getElementById("RoomNumber").value;
+
+  // Implement logic to transition to the specific room based on enteredRoomNumber
+  console.log(`Entered room number: ${enteredRoomNumber}`); // For now, just log the number
+})
 
 
 
