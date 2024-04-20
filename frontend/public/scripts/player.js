@@ -33,6 +33,7 @@ class Player extends Phaser.GameObjects.Sprite{
         frames: this.anims.generateFrameNumbers("eyes", {start: 2, end:3}),
         repeat: 1
       }); //creating sprite animations
+
   
       
   
