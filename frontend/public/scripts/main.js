@@ -443,11 +443,24 @@ const config = {
   scene:[GameScene]
 }
 
-RoomNumberBtn.addEventListener("click", ()=>{
-  menuScreenDiv.style.display="none"
-  game.scene.resume("scene-game")
-  const enteredRoomNumber = document.getElementById("RoomNumber").value;
+let popup = document.getElementById("popup")
 
+function roomButton() {
+  popup.classList.add("open-popup")
+}
+function closePopup() {
+  popup.classList.remove("open-popup")
+}
+
+RoomNumberBtn.addEventListener("click", ()=>{
+  const enteredRoomNumber = document.getElementById("RoomNumber").value;
+  if(enteredRoomNumber == 0) {
+    roomButton();
+    setTimeout(closePopup, 1000);
+  }else{
+    menuScreenDiv.style.display="none"
+    game.scene.resume("scene-game")
+  }
   // Implement logic to transition to the specific room based on enteredRoomNumber
   console.log(`Entered room number: ${enteredRoomNumber}`); // For now, just log the number
 })
