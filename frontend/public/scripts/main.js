@@ -160,6 +160,7 @@ class GameScene extends Phaser.Scene{
 //   }
 
 //   create() {
+//     const bg = this.add.image(0,0,"bgMenu").setOrigin(0,0)
 //     const startButton = this.add.text(300, 100, 'Welcome to Our Cafe', { font: '50px jersey', fill: '#ffffff' });
 //     startButton.setInteractive();
 //     startButton.on('pointerdown', () => {
@@ -167,6 +168,7 @@ class GameScene extends Phaser.Scene{
 //   });
 //   }
 // }
+
 
 const config = {
   type: Phaser.WEBGL,

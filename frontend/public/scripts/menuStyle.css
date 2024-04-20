@@ -1,0 +1,103 @@
+@font-face {
+    src: url(/frontend/public/fonts/Jersey10-Regular.ttf);
+    font-family: jersey;
+}
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --drkClr: #181818;
+    --liClr: whitesmoke;
+    --accClr: #0D0D35;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+
+html,body{
+    height:100%
+}
+
+body{
+    background-color: var(--drkClr);
+    color: var(--liClr);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+header,footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 20px;
+    font-family: jersey;
+    font-size: 50px;
+}
+
+
+main{
+    font-family: jersey;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#RoomNumberBtn {
+    display: inline-block;
+    width: 100px;  
+    padding: 8px 15px;
+    margin-top: 10px; 
+    text-align: center;
+    font-family: inherit;
+    border-radius: 10px;
+    background-color: var(--accClr);  
+    color: white;  
+    cursor: pointer;  
+}
+
+#RoomNumberBtn:hover {
+    background-color: var(--drkClr);  /* Darken button on hover */
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    align-items: center;
+}
+
+.input-container label {
+    margin-bottom: 5px;  
+}
+
+#RoomNumber {
+    padding: 8px;
+    border: 1px solid #ccc;  
+    border-radius: 4px;   
+    align-items: center;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 10px; 
+    text-align: center;
+}
+
+.container {
+    background-image: url(/frontend/public/assets/space.png);
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;  flex-direction: column;  align-items: center;  justify-content: center;  width: 400px;  /* Adjust the width as needed */
+    height: 100%;
+    width: 100%;
+}
+
