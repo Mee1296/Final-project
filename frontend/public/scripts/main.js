@@ -26,9 +26,10 @@ function closePopup() {
 
 RoomNumberBtn.addEventListener("click", ()=>{
   const enteredRoomNumber = document.getElementById("RoomNumber").value;
-  if(enteredRoomNumber == 0) {
+  const playerUserName = document.getElementById("playerName").value;
+  if(enteredRoomNumber == 0 || playerUserName == "") {
     roomButton();
-    setTimeout(closePopup, 1000);
+    setTimeout(closePopup, 1500);
   }else{
     menuScreenDiv.style.display="none"
     game.scene.resume("scene-game")

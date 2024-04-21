@@ -6,9 +6,9 @@ const size = {width:960,
 
 //TextBox for chatBox
 let textBox = document.getElementById("TextBox")
-function textBoxInChat() {
-  textBox.classList.add("open-TextBox")
-}
+// function textBoxInChat() {
+//   textBox.classList.add("open-TextBox")
+// }
 function removeTextBox() {
   textBox.classList.remove("open-TextBox")
 }

@@ -126,13 +126,20 @@ main{
   align-items: center;
   border-radius: 10px;
 }
+#playerName{
+  padding: 8px;
+  border: 1px solid #ccc;  
+  border-radius: 4px;   
+  align-items: center;
+  border-radius: 10px;
+}
 
 #menuScreenDiv h1{
   font-size: 70px;
 }
 
 .popup{
-  width: 400px;
+  width: 500px;
   background: #f2f3ee;
   border-radius: 10px;
   position: absolute;
