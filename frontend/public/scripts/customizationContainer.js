@@ -17,14 +17,15 @@ class CustomizationContainer extends Phaser.GameObjects.Container {
       const leftArrowX = 25
       const rightArrowX = leftArrowX+210
       const arrowGap = 45
-      
-      
-  
+
       const colorArray = [0xffffff,0x181818,0xB8B8B8,0xff0000,0xff8d00,0xffdf00,
         0x02ff00,0x008000,0x00d9ff,0x006dff,0x7e47ff,0xef7aff,0xb55700]
       const hairColorArray = [0xffffff,0x181818,0x3d3d3d,0x593722,0xfcba03,0xE17D17,0xff0000,0xff8d00,0xffdf00,
             0x02ff00,0x008000,0x00d9ff,0x006dff,0x7e47ff,0xef7aff,0xb55700]
-  
+
+
+        // creating customization overlay as container
+    
       const container = this.scene.add.container(this.x,this.y)
   
       const rect = this.scene.add.rectangle(0,0,sizes.width/3+10,sizes.height,0xA79277,1).setOrigin(0,0)
@@ -33,6 +34,7 @@ class CustomizationContainer extends Phaser.GameObjects.Container {
       const displayRect = this.scene.add.rectangle(74,60,158,320,0x000000,1).setOrigin(0,0)
 
 
+      //displaying character in displayRect
       const characterDisplay = this.scene.add.image(74,60,'baseplayer').setOrigin(0,0).setScale(characterRatio).setTint(this.scene.skinTint)
       const characterHairDisplay = this.scene.add.sprite(74,60,'hairpiece',this.scene.hairIndex).setOrigin(0,0).setScale(characterRatio).setTint(hairColorArray.at(this.scene.hairColor))
       const characterShirtDisplay = this.scene.add.sprite(74,60,'shirt',this.scene.shirtIndex).setOrigin(0,0).setScale(characterRatio).setTint(colorArray.at(this.scene.shirtColor))
@@ -85,10 +87,9 @@ class CustomizationContainer extends Phaser.GameObjects.Container {
       const shoe3 = this.scene.add.rectangle(209,482.5,35,35,0xff0000,1).setOrigin(0,0)
       const shoe4 = this.scene.add.rectangle(247,482.5,35,35,0xc45f00,1).setOrigin(0,0)
       const shoe5 = this.scene.add.image(285,482.5,'none').setOrigin(0,0).setScale(0.136)
-      //const shoe5 = this.scene.add.rectangle(285,482.5,35,35,0xffffff,1).setOrigin(0,0)
   
       
-  
+      //adding everything to the container
       container.add(rect)
       container.add(exit)
       container.add(heading)
@@ -142,7 +143,8 @@ class CustomizationContainer extends Phaser.GameObjects.Container {
       container.add(shoe3)
       container.add(shoe4)
       container.add(shoe5)
-  
+        
+      //creating exit button
       exit.setInteractive();
       exit.on('pointerup', () => { container.destroy(),this.scene.click.play()});
   
@@ -466,10 +468,7 @@ class CustomizationContainer extends Phaser.GameObjects.Container {
   
       
   
-  
-  
-  
-  
+
       
   
   
