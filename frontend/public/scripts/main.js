@@ -305,7 +305,9 @@ class GameScene extends Phaser.Scene{
   chatBoxButton.add(chatBoxText)
   chatBoxRect.setInteractive()
   chatBoxRect.on('pointerup', () => { this.chatBox.create(),this.click.play()});
-  chatBoxRect.on('pointerup', () => { textBoxInChat()});
+  chatBoxRect.on('pointerup', () => { 
+    textBoxInChat()
+    textBox.value = ""});
 
 
 
