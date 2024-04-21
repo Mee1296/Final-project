@@ -2,6 +2,7 @@ import './style.css'
 import Phaser, { GameObjects } from 'phaser'
 import Player from './player'
 import CustomizationContainer from './customizationContainer'
+import chatBox from './chatBox'
 
 const sizes = {
   width:960,
@@ -212,8 +213,17 @@ class GameScene extends Phaser.Scene{
   customizeRect.setInteractive();
   customizeRect.on('pointerup', () => { this.customizeMenu.create(),this.click.play()});
 
+  //chatBox add
+  this.chatBox = new chatBox(this,0,0)
 
-  
+  const chatBoxButton = this.add.group()
+  const chatBoxRect = this.add.rectangle(180,0,120,100,0x322C2B)
+  const chatBoxText = this.add.bitmapText(140,15,'mono','ChatBox','18')
+  chatBoxText.setTint(0xE4C59E)
+  chatBoxButton.add(chatBoxRect)
+  chatBoxButton.add(chatBoxText)
+  chatBoxRect.setInteractive()
+  chatBoxRect.on('pointerup', () => { this.chatBox.create(),this.click.play()});
 
 
 
@@ -718,7 +728,7 @@ RoomNumberBtn.addEventListener("click", ()=>{
     game.scene.resume("scene-game")
   }
   // Implement logic to transition to the specific room based on enteredRoomNumber
-  console.log(`Entered room number: ${enteredRoomNumber}`); // For now, just log the number
+  console.log(`Entered room number: ${enteredRoomNumber}`);
 })
 
 
