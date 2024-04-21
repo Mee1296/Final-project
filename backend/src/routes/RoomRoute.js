@@ -23,7 +23,7 @@ router.post("/join_room", async(req, res)=>{
     const room = await Room.findOne({_id:req.body.id})
 
     var member = room.member
-    member.push({name : req.body.name , pos : 0})
+    member.push({name : req.body.name , pos : req.body.pos})
     await Room.replaceOne({_id: req.body.id} , {chat : room.chat, member: member})
 
     res.status(200).json({ message: "OK" });
