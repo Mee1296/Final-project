@@ -88,15 +88,15 @@ class GameScene extends Phaser.Scene{
       frameWidth: 256,
       frameHeight: 512
     });
-    this.load.spritesheet('hairpiece','./assets/headSpritesheet.png',{
+    this.load.spritesheet('hairpiece','./assets/headSpritesheet2.png',{
       frameWidth: 256,
       frameHeight: 512
     });
-    this.load.spritesheet('shirt','./assets/shirtSpritesheet.png',{
+    this.load.spritesheet('shirt','./assets/shirtSpritesheet2.png',{
       frameWidth: 256,
       frameHeight: 512
     });
-    this.load.spritesheet('pants','./assets/pantsSpritesheet.png',{
+    this.load.spritesheet('pants','./assets/pantsSpritesheet2.png',{
       frameWidth: 256,
       frameHeight: 512
     });
@@ -339,10 +339,10 @@ class GameScene extends Phaser.Scene{
       this.shoes.anims.play("shoes-left",true)
       this.acc.setFrame(this.accIndex+1)
       this.hair.setFrame(this.hairIndex+1)
-      if(this.shirtIndex<8){
+      if(this.shirtIndex<18){
         this.shirt.anims.play('shirt-left',true)
-      }else if(this.shirtIndex<16){
-        this.shirt.anims.play('tshirt-left')
+      // }else if(this.shirtIndex<18){
+      //   this.shirt.anims.play('tshirt-left')
       }else{
       this.shirt.anims.play("vest-left",true)
       }
@@ -359,10 +359,10 @@ class GameScene extends Phaser.Scene{
       this.acc.setFrame(this.accIndex+2)
       this.hair.setFrame(this.hairIndex+2)
       console.log(this.shirtIndex)
-      if(this.shirtIndex<8){
+      if(this.shirtIndex<18){
         this.shirt.anims.play('shirt-right',true)
-      }else if(this.shirtIndex<16){
-        this.shirt.anims.play('tshirt-right')
+      // }else if(this.shirtIndex<16){
+      //   this.shirt.anims.play('tshirt-right')
       }else{
       this.shirt.anims.play("vest-right",true)
       }
