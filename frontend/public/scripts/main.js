@@ -11,8 +11,38 @@ const sizes = {
 
 const speedDown = 300;
 
+
+//menuScreen , caution popup
 const menuScreenDiv = document.querySelector("#menuScreenDiv")
 const RoomNumberBtn = document.querySelector("#RoomNumberBtn")
+let popup = document.getElementById("popup")
+
+function roomButton() {
+  popup.classList.add("open-popup")
+}
+function closePopup() {
+  popup.classList.remove("open-popup")
+}
+
+RoomNumberBtn.addEventListener("click", ()=>{
+  const enteredRoomNumber = document.getElementById("RoomNumber").value;
+  if(enteredRoomNumber == 0) {
+    roomButton();
+    setTimeout(closePopup, 1000);
+  }else{
+    menuScreenDiv.style.display="none"
+    game.scene.resume("scene-game")
+  }
+  // Implement logic to transition to the specific room based on enteredRoomNumber
+  console.log(`Entered room number: ${enteredRoomNumber}`);
+})
+
+//textBox in chat
+let textBox = document.getElementById("TextBox")
+function textBoxInChat() {
+  textBox.classList.add("open-TextBox")
+}
+
 
 
 const ratio = 0.4
@@ -44,7 +74,6 @@ class GameScene extends Phaser.Scene{
   }
 
   preload(){
-    this.load.image("menubg","./assets/menubg.png")
     this.load.image("bg", "./assets/bg.PNG")
     this.load.spritesheet('baseplayer', './assets/bp-spritesheet2.png', {
       frameWidth: 256,
@@ -224,6 +253,7 @@ class GameScene extends Phaser.Scene{
   chatBoxButton.add(chatBoxText)
   chatBoxRect.setInteractive()
   chatBoxRect.on('pointerup', () => { this.chatBox.create(),this.click.play()});
+  chatBoxRect.on('pointerup', () => { textBoxInChat()});
 
 
 
@@ -709,27 +739,6 @@ const config = {
   scene:[GameScene]
 }
 
-let popup = document.getElementById("popup")
-
-function roomButton() {
-  popup.classList.add("open-popup")
-}
-function closePopup() {
-  popup.classList.remove("open-popup")
-}
-
-RoomNumberBtn.addEventListener("click", ()=>{
-  const enteredRoomNumber = document.getElementById("RoomNumber").value;
-  if(enteredRoomNumber == 0) {
-    roomButton();
-    setTimeout(closePopup, 1000);
-  }else{
-    menuScreenDiv.style.display="none"
-    game.scene.resume("scene-game")
-  }
-  // Implement logic to transition to the specific room based on enteredRoomNumber
-  console.log(`Entered room number: ${enteredRoomNumber}`);
-})
 
 
 

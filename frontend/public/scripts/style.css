@@ -2,6 +2,10 @@
   src: url(fonts/Jersey10-Regular.ttf);
   font-family: jersey;
 }
+@font-face {
+  src: url(fonts/Jersey25-Regular.ttf);
+  font-family: jersey25;
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -45,7 +49,7 @@ main{
 
 }
 
-#gameCanvas{
+.gameCanvas{
   border: 1px solid red;
   position: absolute;
   top: 51%;
@@ -169,4 +173,25 @@ main{
   cursor: pointer;
   font-family: jersey;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.TextBox{
+  position: absolute;
+  top: 84%;
+  left: 28.75%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  z-index: 1;
+  padding: 8px;
+  border: 1px solid #ccc;  
+  border-radius: 4px;   
+  align-items: center;
+  border-radius: 10px;
+  width: 320px;
+  background-color: antiquewhite;
+  visibility: hidden;
+}
+
+.open-TextBox{
+  visibility: visible;
 }
