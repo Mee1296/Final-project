@@ -3,8 +3,18 @@ export const BACKEND_URL = "http://localhost:3222";
 
 // TODO0: change element in MEMBERS to your group members.
 // WARNING: the _id parameters is required.
-export const MEMBERS = [
-  { name: "อติวงศ์ สุชาโต", _id: 1 },
-  { name: "โปรดปราน บุณยพุกกณะ", _id: 2 },
-  { name: "ณัฐวุฒิ หนูไฟโรจน์", _id: 3 },
-];
+export const config = {
+  type: Phaser.WEBGL,
+  width:sizes.width,
+  height:sizes.height,
+  canvas:gameCanvas,
+  physics:{
+    default:"arcade",
+    arcade:{
+      gravity:{y:speedDown},
+      debug:true
+    }
+
+  },
+  scene:[GameScene]
+}
