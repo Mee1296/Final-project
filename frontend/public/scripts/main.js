@@ -88,7 +88,7 @@ class GameScene extends Phaser.Scene{
       frameWidth: 256,
       frameHeight: 512
     });
-    this.load.spritesheet('hairpiece','./assets/headSpritesheet.png',{
+    this.load.spritesheet('hairpiece','./assets/headSpritesheet2.png',{
       frameWidth: 256,
       frameHeight: 512
     });
@@ -96,7 +96,7 @@ class GameScene extends Phaser.Scene{
       frameWidth: 256,
       frameHeight: 512
     });
-    this.load.spritesheet('pants','./assets/pantsSpritesheet.png',{
+    this.load.spritesheet('pants','./assets/pantsSpritesheet2.png',{
       frameWidth: 256,
       frameHeight: 512
     });
