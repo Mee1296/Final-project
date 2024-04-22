@@ -77,6 +77,8 @@ class GameScene extends Phaser.Scene{
     this.chat
     this.oldmessage = ''
     this.message
+    this.name
+    this.playerName 
   }
 
   preload(){
@@ -315,7 +317,7 @@ class GameScene extends Phaser.Scene{
   //   textBox.value = ""});
 
     //create new chat
-    this.chat = this.add.text(this.player.body.position.x,this.player.body.position.y,this.message).setTint(0x000000).setOrigin(0,0).setAlign('center')
+    this.chat = this.add.text(this.player.body.position.x,this.player.body.position.y-25,this.message).setTint(0x000000).setOrigin(0,0).setAlign('center').setStroke(0xffffff,1)
     //this.chat = this.add.text(0, 0, this.message).setTint(0x000000).setOrigin(0.5, 1).setAlign('center');
 
     //test for if the message pop up when it change, delete this when you update the message by input
@@ -325,6 +327,10 @@ class GameScene extends Phaser.Scene{
     //   callbackScope: this, 
     //   loop: true 
     // }); 
+    //create player name
+    const darkgreen = {r:0, g:255, b:0}
+    this.name = this.add.text(this.player.body.position.x,this.player.body.position.y,this.playerName).setTint(0x00ff00).setOrigin(0,0).setAlign('center')
+    
     
   
   }
@@ -337,8 +343,11 @@ class GameScene extends Phaser.Scene{
     }
     this.updateMessage()
     this.messagePopup()
-    
 
+    const Name = document.getElementById("playerName").value
+
+    this.name.setText(Name)
+    this.name.setPosition(this.player.body.position.x,this.player.body.position.y)
   }
 
   movePlayer(){
@@ -415,7 +424,7 @@ class GameScene extends Phaser.Scene{
   }
   messagePopup(){
     this.chat.setText(this.message)
-    this.chat.setPosition(this.player.body.position.x,this.player.body.position.y)
+    this.chat.setPosition(this.player.body.position.x,this.player.body.position.y-25)
 
     //detect message change
     if(this.message != this.oldmessage){
@@ -434,7 +443,7 @@ class GameScene extends Phaser.Scene{
 
   updateMessage() {
     const chatInput = document.getElementById("TextBox")
-    const sentButton = document.getElementById("textButton")
+    // const sentButton = document.getElementById("textButton")
 
     chatInput.addEventListener('keydown', (event)=>{
       if (event.key === 'Enter') {
