@@ -185,7 +185,7 @@ main{
 .TextBox{
   position: absolute;
   top: 18%;
-  left: 69%;
+  left: 72%;
   transform: translate(-50%,-50%);
   display: flex;
   z-index: 1;
