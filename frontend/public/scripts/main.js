@@ -11,6 +11,8 @@ const sizes = {
 
 const speedDown = 300;
 
+var flipFlop;
+
 
 //menuScreen , caution popup
 const menuScreenDiv = document.querySelector("#menuScreenDiv")
@@ -317,12 +319,12 @@ class GameScene extends Phaser.Scene{
     //this.chat = this.add.text(0, 0, this.message).setTint(0x000000).setOrigin(0.5, 1).setAlign('center');
 
     //test for if the message pop up when it change, delete this when you update the message by input
-    this.time.addEvent({
-      delay: 20000, 
-      callback: () => this.message,
-      callbackScope: this, 
-      loop: true 
-    }); 
+    // this.time.addEvent({
+    //   delay: 20000, 
+    //   callback: () => this.message,
+    //   callbackScope: this, 
+    //   loop: true 
+    // }); 
     
   
   }
@@ -421,11 +423,12 @@ class GameScene extends Phaser.Scene{
       this.oldmessage = this.message
       this.time.addEvent({
         delay: 15000, 
-        callback: () => this.chat.setAlpha(0),
+        callback: () => {this.chat.setAlpha(0), this.message = ''},
         callbackScope: this, 
         loop: true 
     });
     }
+    this.updateMessage()
   }
 
   updateMessage() {
@@ -434,17 +437,33 @@ class GameScene extends Phaser.Scene{
 
     chatInput.addEventListener('keydown', (event)=>{
       if (event.key === 'Enter') {
+        if(!flipFlop){
         const newMessage = chatInput.value
         this.message = newMessage
+        console.log(this.message)
+        flipFlop = true
+        chatInput.value = ''
+        }
       }
       // if(event.key === "Enter" && this.message != ""){
       //   this.clearChat()
       // }
+      else{
+        flipFlop = false;
+      }
     })
-    sentButton.addEventListener('click', () => {
-      const newMessage = chatInput.value
-      this.message = newMessage
-    })
+    // sentButton.addEventListener('click', () => {
+    //   if(!flipFlop){
+    //   const newMessage = chatInput.value
+    //   console.log(newMessage)
+    //   this.message = newMessage
+    //   flipFlop = true
+    //   }
+    //   else{
+    //     flipFlop = false
+    //   }
+
+    // })
   }
 
   // clearChat() {
