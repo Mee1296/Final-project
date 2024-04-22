@@ -328,8 +328,7 @@ class GameScene extends Phaser.Scene{
     //   loop: true 
     // }); 
     //create player name
-    const darkgreen = {r:0, g:255, b:0}
-    this.name = this.add.text(this.player.body.position.x,this.player.body.position.y,this.playerName).setTint(0x00ff00).setOrigin(0,0).setAlign('center')
+    this.name = this.add.text(this.player.body.position.x,this.player.body.position.y,this.playerName).setTint(0x287600).setOrigin(0,0).setAlign('center')
     
     
   
