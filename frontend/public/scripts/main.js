@@ -317,7 +317,7 @@ class GameScene extends Phaser.Scene{
   //   textBox.value = ""});
 
     //create new chat
-    this.chat = this.add.text(this.player.body.position.x,this.player.body.position.y-25,this.message).setTint(0x000000).setOrigin(0,0).setAlign('center').setStroke(0xffffff,1)
+    this.chat = this.add.text(this.player.body.position.x,this.player.body.position.y-25,this.message).setTint(0xffffff).setOrigin(0,0).setAlign('center').setStroke(0x000000,10)
     //this.chat = this.add.text(0, 0, this.message).setTint(0x000000).setOrigin(0.5, 1).setAlign('center');
 
     //test for if the message pop up when it change, delete this when you update the message by input
@@ -328,7 +328,16 @@ class GameScene extends Phaser.Scene{
     //   loop: true 
     // }); 
     //create player name
-    this.name = this.add.text(this.player.body.position.x,this.player.body.position.y,this.playerName).setTint(0x287600).setOrigin(0,0).setAlign('center')
+    this.name = this.add.text(0,0,this.playerName)
+    .setFontSize(18)
+    .setFontStyle('bold')
+    .setFontFamily('Arial')
+    .setTint(0xFFFC1D)
+    .setAlign('center')
+    .setBackgroundColor('#390000')
+    .setOrigin(-0.5,0)
+    .setAlpha(0.5)
+
     
     
   
@@ -346,7 +355,8 @@ class GameScene extends Phaser.Scene{
     const Name = document.getElementById("playerName").value
 
     this.name.setText(Name)
-    this.name.setPosition(this.player.body.position.x,this.player.body.position.y)
+
+    this.name.setPosition(this.player.body.position.x, this.player.body.position.y)
   }
 
   movePlayer(){
