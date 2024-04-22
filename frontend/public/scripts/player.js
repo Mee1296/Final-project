@@ -7,6 +7,7 @@ class Player extends Phaser.GameObjects.Sprite{
       this.scene.physics.world.enable(this)
       this.body.setCollideWorldBounds(true)
       this.scale = ratio
+      this.message 
   
       this.scene.anims.create({
         key: "right",
@@ -34,10 +35,13 @@ class Player extends Phaser.GameObjects.Sprite{
         repeat: 1
       }); //creating sprite animations
 
-  
+
+
       
   
   
+    }
+    update(){
     }
   }
 

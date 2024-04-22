@@ -72,6 +72,9 @@ class GameScene extends Phaser.Scene{
     this.pantsIndex = 0
     this.pantsColor = 0
     this.eyeTint = 0x181818
+    this.chat
+    this.oldmessage = ''
+    this.message = 'hello everyone'
     
   }
 
@@ -310,9 +313,18 @@ class GameScene extends Phaser.Scene{
     textBoxInChat()
     textBox.value = ""});
 
+    //create new chat
+    this.chat = this.add.text(this.player.body.position.x,this.player.body.position.y,this.message).setTint(0x000000).setOrigin(0,0).setAlign('center')
+    //this.chat = this.add.text(0, 0, this.message).setTint(0x000000).setOrigin(0.5, 1).setAlign('center');
 
-
-
+    //test for if the message pop up when it change, delete this when you update the message by input
+    this.time.addEvent({
+      delay: 16000, 
+      callback: () => this.message = 'balls',
+      callbackScope: this, 
+      loop: true 
+    }); 
+  
   }
 
   update(){
@@ -321,7 +333,8 @@ class GameScene extends Phaser.Scene{
     if(this.track1.isPlaying){
       this.emitter.start();
     }
-
+    this.messagePopup()
+    
 
 
   }
@@ -398,6 +411,24 @@ class GameScene extends Phaser.Scene{
       }
     });
   }
+  messagePopup(){
+    this.chat.setText(this.message)
+    this.chat.setPosition(this.player.body.position.x,this.player.body.position.y)
+
+    //detect message change
+    if(this.message != this.oldmessage){
+      this.chat.setAlpha(1)
+      this.pop.play()
+      this.oldmessage = this.message
+      this.time.addEvent({
+        delay: 15000, 
+        callback: () => this.chat.setAlpha(0),
+        callbackScope: this, 
+        loop: true 
+    });
+    }
+  }
+
 }
 
 
