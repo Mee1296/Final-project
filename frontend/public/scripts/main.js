@@ -335,8 +335,9 @@ class GameScene extends Phaser.Scene{
     if(this.track1.isPlaying){
       this.emitter.start();
     }
-    this.messagePopup()
     this.updateMessage()
+    this.messagePopup()
+    
 
   }
 
@@ -418,17 +419,17 @@ class GameScene extends Phaser.Scene{
 
     //detect message change
     if(this.message != this.oldmessage){
+      this.time.removeAllEvents()
       this.chat.setAlpha(1)
       this.pop.play()
       this.oldmessage = this.message
       this.time.addEvent({
         delay: 15000, 
         callback: () => {this.chat.setAlpha(0), this.message = ''},
-        callbackScope: this, 
+        //callbackScope: this, 
         loop: true 
     });
     }
-    this.updateMessage()
   }
 
   updateMessage() {
@@ -440,6 +441,7 @@ class GameScene extends Phaser.Scene{
         if(!flipFlop){
         const newMessage = chatInput.value
         this.message = newMessage
+        console.log(this.oldmessage)
         console.log(this.message)
         flipFlop = true
         chatInput.value = ''
