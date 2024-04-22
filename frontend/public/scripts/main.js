@@ -39,10 +39,10 @@ RoomNumberBtn.addEventListener("click", ()=>{
 })
 
 //textBox in chat
-let textBox = document.getElementById("TextBox")
-function textBoxInChat() {
-  textBox.classList.add("open-TextBox")
-}
+// let textBox = document.getElementById("TextBox")
+// function textBoxInChat() {
+//   textBox.classList.add("open-TextBox")
+// }
 
 
 
@@ -74,8 +74,7 @@ class GameScene extends Phaser.Scene{
     this.eyeTint = 0x181818
     this.chat
     this.oldmessage = ''
-    this.message = 'hello everyone'
-    
+    this.message
   }
 
   preload(){
@@ -299,19 +298,19 @@ class GameScene extends Phaser.Scene{
   customizeRect.on('pointerup', () => { this.customizeMenu.create(),this.click.play()});
 
   //chatBox add
-  this.chatBox = new chatBox(this,0,0)
+  // this.chatBox = new chatBox(this,0,0)
 
-  const chatBoxButton = this.add.group()
-  const chatBoxRect = this.add.rectangle(180,0,120,100,0x322C2B)
-  const chatBoxText = this.add.bitmapText(140,15,'mono','ChatBox','18')
-  chatBoxText.setTint(0xE4C59E)
-  chatBoxButton.add(chatBoxRect)
-  chatBoxButton.add(chatBoxText)
-  chatBoxRect.setInteractive()
-  chatBoxRect.on('pointerup', () => { this.chatBox.create(),this.click.play()});
-  chatBoxRect.on('pointerup', () => { 
-    textBoxInChat()
-    textBox.value = ""});
+  // const chatBoxButton = this.add.group()
+  // const chatBoxRect = this.add.rectangle(180,0,120,100,0x322C2B)
+  // const chatBoxText = this.add.bitmapText(140,15,'mono','ChatBox','18')
+  // chatBoxText.setTint(0xE4C59E)
+  // chatBoxButton.add(chatBoxRect)
+  // chatBoxButton.add(chatBoxText)
+  // chatBoxRect.setInteractive()
+  // chatBoxRect.on('pointerup', () => { this.chatBox.create(),this.click.play()});
+  // chatBoxRect.on('pointerup', () => { 
+  //   textBoxInChat()
+  //   textBox.value = ""});
 
     //create new chat
     this.chat = this.add.text(this.player.body.position.x,this.player.body.position.y,this.message).setTint(0x000000).setOrigin(0,0).setAlign('center')
@@ -319,11 +318,12 @@ class GameScene extends Phaser.Scene{
 
     //test for if the message pop up when it change, delete this when you update the message by input
     this.time.addEvent({
-      delay: 16000, 
-      callback: () => this.message = 'balls',
+      delay: 20000, 
+      callback: () => this.message,
       callbackScope: this, 
       loop: true 
     }); 
+    
   
   }
 
@@ -334,8 +334,7 @@ class GameScene extends Phaser.Scene{
       this.emitter.start();
     }
     this.messagePopup()
-    
-
+    this.updateMessage()
 
   }
 
@@ -428,6 +427,33 @@ class GameScene extends Phaser.Scene{
     });
     }
   }
+
+  updateMessage() {
+    const chatInput = document.getElementById("TextBox")
+    const sentButton = document.getElementById("textButton")
+
+    chatInput.addEventListener('keydown', (event)=>{
+      if (event.key === 'Enter') {
+        const newMessage = chatInput.value
+        this.message = newMessage
+      }
+      // if(event.key === "Enter" && this.message != ""){
+      //   this.clearChat()
+      // }
+    })
+    sentButton.addEventListener('click', () => {
+      const newMessage = chatInput.value
+      this.message = newMessage
+    })
+  }
+
+  // clearChat() {
+  //   const chatInput = document.getElementById("TextBox")
+  //   chatInput.value = ""
+  // }
+
+  
+
 
 }
 

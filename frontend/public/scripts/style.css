@@ -184,8 +184,8 @@ main{
 
 .TextBox{
   position: absolute;
-  top: 84%;
-  left: 28.75%;
+  top: 18%;
+  left: 69%;
   transform: translate(-50%,-50%);
   display: flex;
   z-index: 1;
@@ -194,12 +194,28 @@ main{
   border-radius: 4px;   
   align-items: center;
   border-radius: 10px;
-  width: 320px;
+  width: 300px;
   background-color: antiquewhite;
-  visibility: hidden;
+  visibility: visible;
 }
 
 .open-TextBox{
   visibility: visible;
+}
+
+#textButton{
+  position: absolute;
+  top: 18%;
+  left: 80.5%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  z-index: 1;
+  padding: 8px;
+  border: 1px solid #ccc;  
+  border-radius: 4px;   
+  align-items: center;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  cursor: pointer;
 }
 
