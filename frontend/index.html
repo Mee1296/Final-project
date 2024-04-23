@@ -15,7 +15,7 @@
     <main>
       <Canvas id="gameCanvas" class="gameCanvas"></Canvas>
       <div id="chatBoxDiv">
-        <input type="text" id="TextBox" class="TextBox">
+        <input type="text" id="TextBox" class="TextBox" maxlength="70">
         <!-- <button id = "textButton">sent</button> -->
       </div>
 
@@ -24,7 +24,7 @@
         <label for="RoomNumber">Enter your room No.</label>
         <input type="number" id="RoomNumber" required>
         <labe for="playerName">Your Name</labe>
-        <input type="text" id="playerName" required>
+        <input type="text" id="playerName" maxlength="15" required >
         <button id="RoomNumberBtn">Go!</button>
         <div class="popup" id="popup">
           <h1>Please enter your room No. AND your Name</h1>

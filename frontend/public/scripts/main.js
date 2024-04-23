@@ -12,6 +12,7 @@ const sizes = {
 const speedDown = 300;
 
 var flipFlop;
+var jukeFlipFlop;
 
 
 //menuScreen , caution popup
@@ -335,7 +336,7 @@ class GameScene extends Phaser.Scene{
     .setTint(0xFFFC1D)
     .setAlign('center')
     .setBackgroundColor('#390000')
-    .setOrigin(-0.5,0)
+    //.setOrigin(-0.5,0)
     .setAlpha(0.5)
 
     
@@ -423,12 +424,20 @@ class GameScene extends Phaser.Scene{
 
   onContact() { //allow jukebox to play
     this.jukebox.on('pointerup', () => {
-      console.log("clicked");
-      if (this.track1.isPlaying) {
-        this.track1.pause();
-      } else {
-        this.track1.play();
+
+      if(!jukeFlipFlop){
+        console.log("clicked");
+        if (this.track1.isPlaying) {
+          this.track1.pause();
+          }
+        else {
+          this.track1.play();
+        }
+        jukeFlipFlop = true
+      }else{
+        jukeFlipFlop = false
       }
+      
     });
   }
   messagePopup(){
